@@ -6,15 +6,11 @@ SQL> create table movies
   6  director_id int
   7  );
 
-Table created.
-
 SQL> create table directors
   2  (
   3  director_id int,
   4  director_name varchar(30)
   5  );
-
-Table created.
 
 SQL> create table genres
   2  (
@@ -22,36 +18,27 @@ SQL> create table genres
   4  genre_name varchar(30)
   5  );
 
-Table created.
-
 SQL> create table movie_genres
   2  (
   3  movie_id int,
   4  genre_id int
   5  );
 
-Table created.
-
 SQL> select movies.title,director.director_name
   2  from movies
   3  inner join director on movies.director_id=director.director_id;
-
 
 SQL> select movies.title,movies.release_year,director.director_name
   2  from movies
   3  inner join director on movies.director_id=director.director_id;
 
+SQL> select movies.title,director.director_name
+  2  from movies
+  3  inner join director on movies.director_id=director.director_id;
 
-SQL> select director.director_name,movies.title
-  2  from director
-  3  left join movies on director.director_id=movies.director_id;
-
-
-SQL> select director.director_name,movies.title,movies.release_year
-  2  from director
-  3  left join movies on director.director_id=movies.director_id;
-
-
+SQL> select movies.title,movies.release_year,director.director_name
+  2  from movies
+  3  inner join director on movies.director_id=director.director_id;
 
 SQL> select movies.title,genres.genre_name
   2  from movies
